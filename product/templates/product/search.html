@@ -1,0 +1,23 @@
+{% extends 'shop/base.html' %}
+
+{% block title %} Search | {% endblock %}
+
+{% block content %}
+<section class="s2">
+    <div>
+        <h2>{{ query }}</h2>
+    </div>
+
+    <div class="category-container">
+        {% for product in products %}
+        <div class="category-item"><a href="{% url 'product' product.category.slug product.slug %}">
+            <img class="category-thumbnail" src="{{ product.image.url }}" alt="">
+            <div>
+                <h6 class="item-title">{{ product.name }}</h6>
+                <p id="item-price">${{ product.price }}</p>
+            </div></a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}

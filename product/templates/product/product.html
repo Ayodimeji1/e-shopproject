@@ -1,0 +1,62 @@
+{% extends 'shop/base.html' %}
+
+{% block title %} {{ product.title }} | {% endblock %}
+
+{% block content %}
+<section class="blank">
+    <div>
+
+    </div>
+</section>
+<section class="s2">
+    <div class="product-summary-container">
+
+        <div>
+            <img class="product-summary-thumbnail" src="{{ product.image.url }}" alt="">
+            <h5></h5>
+        </div>
+
+        <div>
+            <p>{{ product.name }}</p>
+            <p>{{ product.description }}</p>
+            <p>${{ product.price }}</p>
+
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+
+            <form method="post" action=".">
+                {% csrf_token %}
+                <div id="input">
+                    <input type="number" name="quantity" value="1" min="1" class="input">
+                </div>
+                <div>
+                    <button>Add to cart</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section>
+    <div id="similar-heading">
+        <h4>Similar Products</h4>
+    </div>
+    <div class="similar-products">
+        {% if similar_products %}
+
+        {% for products in similar_products %}
+            {% include 'product/list_similar.html' %}
+        {% endfor %}
+
+        {% endif %}
+    </div>
+</section>
+
+
+{% endblock %}
+
