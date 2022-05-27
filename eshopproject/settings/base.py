@@ -82,11 +82,8 @@ WSGI_APPLICATION = 'eshopproject.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         default="postgres://postgres:$$ayodimeji22@localhost:5432/eshop", conn_max_age=600
-#     )
-# }
+SESSION_COOKIE_AGE = 86400
+CART_SESSION_ID = 'cart'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
