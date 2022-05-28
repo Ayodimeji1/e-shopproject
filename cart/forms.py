@@ -3,9 +3,9 @@ from django.forms.fields import CharField
 
 
 class CheckoutForm(forms.Form):
-    name = forms.CharField(max_length=255)
-    email = forms.EmailField(max_length=255)
-    phone = forms.CharField(max_length=255)
-    address = forms.CharField(max_length=255)
-    zipcode = forms.CharField(max_length=255)
+    full_name = forms.CharField(max_length=100)
+    email = forms.EmailField(max_length=100)
+    phone = forms.IntegerField()
+    address = forms.CharField(max_length=100)
+    zipcode = forms.IntegerField()
     stripe_token = forms.CharField(max_length=255)

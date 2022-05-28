@@ -42,7 +42,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
 
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme.min.css' %}">
 
@@ -50,22 +50,22 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme-rtl.min.css' %}">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme.css' %}">
 
 
 
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
-    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
-    <script src="{% static 'vendors/is/is.min.js' %}"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="{% static 'vendors/feather-icons/feather.min.js' %}"></script>
-<!--    <script>-->
-<!--      feather.replace();-->
-<!--    </script>-->
-    <script src="{% static 'assets/js/theme.js' %}"></script>
+<!--    <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>-->
+<!--    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>-->
+<!--    <script src="{% static 'vendors/is/is.min.js' %}"></script>-->
+<!--    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>-->
+<!--    <script src="{% static 'vendors/feather-icons/feather.min.js' %}"></script>-->
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;      feather.replace();&ndash;&gt;-->
+<!--&lt;!&ndash;    </script>&ndash;&gt;-->
+<!--    <script src="{% static 'assets/js/theme.js' %}"></script>-->
 
 
 
@@ -91,7 +91,7 @@
             </ul>
 
             <form class="d-flex">
-              <a class="text-1000" href="{% url 'cart_detail' %}">
+              <a class="text-1000" href="{% url 'cart' %}">
                 <svg class="feather feather-shopping-cart me-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <circle cx="9" cy="21" r="1"></circle>
                   <circle cx="20" cy="21" r="1"></circle>
@@ -153,15 +153,15 @@
 
       {% block scripts %}
   <!--- some scripts that apply to all pages -->
-         <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
-        <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
-        <script src="{% static 'vendors/is/is.min.js' %}"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-        <script src="{% static 'vendors/feather-icons/feather.min.js' %}"></script>
-        <script>
-          feather.replace();
-        </script>
-        <script src="{% static 'assets/js/theme.js' %}"></script>
+          <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
+          <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+          <script src="{% static 'vendors/is/is.min.js' %}"></script>
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+          <script src="{% static 'vendors/feather-icons/feather.min.js' %}"></script>
+          <script>
+            feather.replace();
+          </script>
+          <script src="{% static 'assets/js/theme.js' %}"></script>
       {% endblock %}
 
 

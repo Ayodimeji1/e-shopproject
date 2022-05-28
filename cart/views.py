@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from cart.forms import CheckoutForm
+from eshopproject.settings import dev
+
 from order.utilities import checkout
 from .cart import Cart
 
@@ -19,7 +21,7 @@ def cart_detail(request):
         form = CheckoutForm(request.POST)
 
         if form.is_valid():
-            stripe.api_key = settings.STRIPE_SECRET_KEY
+            stripe.api_key = dev.STRIPE_SECRET_KEY
 
             stripe_token = form.cleaned_data['stripe_token']
 
@@ -31,15 +33,13 @@ def cart_detail(request):
                     source=stripe_token
                 )
 
-                first_name = form.cleaned_data['first_name']
-                last_name = form.cleaned_data['last_name']
+                full_name = form.cleaned_data['full_name']
                 email = form.cleaned_data['email']
                 phone = form.cleaned_data['phone']
                 address = form.cleaned_data['address']
                 zipcode = form.cleaned_data['zipcode']
-                place = form.cleaned_data['place']
 
-                order = checkout(request, first_name, last_name, email, address, zipcode, place, phone,
+                order = checkout(request, full_name, email, phone, address, zipcode,
                                  cart.get_total_cost())
 
                 cart.clear()
@@ -64,8 +64,9 @@ def cart_detail(request):
 
         return redirect('cart')
 
-    return render(request, 'cart/cart.html', {'form': form, 'stripe_pub_key': settings.STRIPE_PUB_KEY})
+    return render(request, 'cart/cart.html', {'form': form, 'stripe_pub_key': dev.STRIPE_PUB_KEY})
 
 
 def success(request):
-    return render(request, 'cart/success.html')    
+
+    return render(request, 'cart/success.html')
