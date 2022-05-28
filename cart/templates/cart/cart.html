@@ -1,0 +1,152 @@
+{% extends 'shop/base.html' %}
+
+{% block title %} Cart | {% endblock %}
+
+{% block content %}
+
+<section class="blank">
+    <div>
+
+    </div>
+</section>
+
+<section>
+    <h2 class="title">Cart</h2>
+    {% if cart %}
+    <div class="card">
+        <div class="row">
+            <div class="col-md-8 cart">
+                <div class="title">
+                    <div class="row">
+                        <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                        <div class="col align-self-center text-right text-muted">{{ cart|length }} item(s)</div>
+                    </div>
+                </div>
+                {% for item in cart %}
+                <div class="row border-top border-bottom">
+                    <div class="row main align-items-center">
+                        <div class="col-2">
+                            <img class="img-fluid" src="{{ product.image.url }}" alt="">
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <a href="{% url 'product' item.product.category.slug item.product.slug %}">{{ item.product.name }}</a>
+                            </div>
+                        </div>
+                        <div class="col">
+
+                            <a href="?change_quantity={{ item.id }}&quantity=-1">-</a>{{ item.quantity }}<a href="?change_quantity={{ item.id }}&quantity=1">+</a>
+                        </div>
+                        <div class="col">${{ item.total_price }}</div><span class="close"><a href="?remove_from_cart={{ item.id }}" class="delete">&#10005;</a></span>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="back-to-shop"><a href="{% url 'index' %}">&leftarrow;<span class="text-muted">Back to shop</span></a></div>
+            </div>
+
+
+            <div class="col-md-4 summary">
+                <div><h5><b>Summary</b></h5></div>
+                <hr>
+
+                <form method="post" action="." id="payment-form">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="notification is-danger">
+                        {{ form.non_field_errors}}
+                    </div>
+                {% endif %}
+
+                {% if form.errors %}
+                    <div class="notification is-danger">
+                        <ul>
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                     <li><strong>{{ field.label }}: </strong>{{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                    <div class="columns">
+                        <div class="column is-6">
+                            <div class="field">
+                                <label>Full name</label>
+
+                                <div class="control">
+                                    <input class="input" type="text" name="first_name">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label>E-mail</label>
+
+                                <div class="control">
+                                    <input class="input" type="email" name="email">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label>Phone</label>
+
+                                <div class="control">
+                                    <input class="input" type="text" name="phone">
+                                </div>
+                            </div>
+
+
+                            <div class="column is-6">
+                                <div class="field">
+                                    <label>Address</label>
+
+                                    <div class="control">
+                                        <input class="input" type="text" name="address">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="column is-6">
+                                <div class="field">
+                                    <label>Card details</label>
+
+                                    <div id="card-element" class="control">
+                        <!-- A Stripe Element will be inserted here -->
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="notification is-danger">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+
+
+                            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                                <div class="col">Total Cost: </div>
+                                <div class="col text-right">${{ cart.get_total_cost }}</div>
+                            </div>
+                            <button class="btn">CHECKOUT</button>
+
+<!--                            <div class="field">-->
+<!--                                <div class="control">-->
+<!--                                    <button class="button is-dark mt-4 is-uppercase">Checkout</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <p>You don't have any products in your cart!</p>
+    {% endif %}
+</section>
+
+{% endblock %}

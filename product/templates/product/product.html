@@ -22,18 +22,21 @@
             <p>${{ product.price }}</p>
 
             {% if messages %}
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
+                {% for message in messages %}
+<!--                    <div class="cart-msg-success">{{ message }}</div>-->
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             {% endif %}
 
             <form method="post" action=".">
                 {% csrf_token %}
-                <div id="input">
-                    <input type="number" name="quantity" value="1" min="1" class="input">
-                </div>
+<!--                <div id="input">-->
+<!--                    <input type="number" name="quantity" value="1" min="1" class="input">-->
+<!--                </div>-->
                 <div>
-                    <button>Add to cart</button>
+                    <button class="btn btn-dark">Add to cart</button>
                 </div>
             </form>
         </div>

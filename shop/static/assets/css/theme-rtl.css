@@ -91,6 +91,8 @@ h1, .h1 {
   font-size: calc(1.37383rem + 1.48598vw);
 }
 
+
+
 @media (min-width: 1200px) {
   h1, .h1 {
     font-size: 2.48832rem;
