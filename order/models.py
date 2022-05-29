@@ -10,6 +10,8 @@ class Order(models.Model):
     phone = models.IntegerField()
     address = models.CharField(max_length=100)
     zipcode = models.IntegerField()
+    ref = models.CharField(max_length=200)
+    verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     paid_amount = models.DecimalField(max_digits=8, decimal_places=2)
 
