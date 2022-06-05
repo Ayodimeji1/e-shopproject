@@ -21,6 +21,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
+    <script src="https://js.paystack.co/v1/inline.js"></script>
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
@@ -44,11 +45,11 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/product.css' %}">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme.min.css' %}">
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme.min.css' %}">-->
 
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme-rtl.css' %}">
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme-rtl.css' %}">-->
 
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme-rtl.min.css' %}">
+<!--    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme-rtl.min.css' %}">-->
 
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/theme.css' %}">
 
@@ -57,15 +58,19 @@
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
-    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
-    <script src="{% static 'vendors/is/is.min.js' %}"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="{% static 'vendors/feather-icons/feather.min.js' %}"></script>
-<!--    <script>-->
-<!--      feather.replace();-->
-<!--    </script>-->
-    <script src="{% static 'assets/js/theme.js' %}"></script>
+
+
+
+
+<!--    <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>-->
+<!--    <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>-->
+<!--    <script src="{% static 'vendors/is/is.min.js' %}"></script>-->
+<!--    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>-->
+<!--    <script src="{% static 'vendors/feather-icons/feather.min.js' %}"></script>-->
+<!--&lt;!&ndash;    <script>&ndash;&gt;-->
+<!--&lt;!&ndash;      feather.replace();&ndash;&gt;-->
+<!--&lt;!&ndash;    </script>&ndash;&gt;-->
+<!--    <script src="{% static 'assets/js/theme.js' %}"></script>-->
 
 
 
@@ -98,7 +103,7 @@
                   <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                 </svg>{% if cart %}({{ cart|length }}){% endif %}</a>
 
-                <a class="text-1000" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <a class="text-1000" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                   <svg class="feather feather-search me-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -110,7 +115,7 @@
       </nav>
 
 <!--      Modal-->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="">
+      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="">
         <div class="modal-dialog">
           <div class="modal-content">
             <form method="get" action="{% url 'search' %}">
@@ -122,6 +127,8 @@
           </div>
         </div>
       </div>
+
+
 
       <section class="py-11 bg-light-gradient border-bottom border-white border-5">
         <div class="bg-holder overlay overlay-light" style="background-image:url(assets/img/gallery/header-bg.png);background-size:cover;">
@@ -153,6 +160,7 @@
 
       {% block scripts %}
   <!--- some scripts that apply to all pages -->
+          <script src="https://js.paystack.co/v1/inline.js"></script>
           <script src="{% static 'vendors/@popperjs/popper.min.js' %}"></script>
           <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
           <script src="{% static 'vendors/is/is.min.js' %}"></script>
@@ -162,7 +170,10 @@
             feather.replace();
           </script>
           <script src="{% static 'assets/js/theme.js' %}"></script>
-      {% endblock %}
+
+
+      {% endblock scripts %}
+
 
 
     </main>

@@ -5,19 +5,19 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
-from .models import Order, OrderItem
+from .models import Payment, OrderItem
 
 
-def checkout(request, full_name, email, phone , address, zipcode,  amount):
-    order = Order.objects.create(full_name=full_name, email=email, phone=phone, address=address,
-                                 zipcode=zipcode, paid_amount=amount)
+def checkout(request, full_name, email, phone, address, amount):
+    payment = Payment.objects.create(full_name=full_name, email=email, phone=phone, address=address,
+                                     amount=amount)
 
     for item in Cart(request):
-        OrderItem.objects.create(order=order, product=item['product'],
+        OrderItem.objects.create(payment=payment, product=item['product'],
                                  price=item['product'].price, quantity=item['quantity'])
-        order.add(item['product'])
+        payment.add(item['product'])
 
-    return order
+    return payment
 
 
 # def notify_vendor(order):
