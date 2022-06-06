@@ -3,57 +3,60 @@
 {% block title %} {{ product.title }} | {% endblock %}
 
 {% block content %}
-<section class="s2">
-    <div class="product-summary-container">
+<!--<section class="s2">-->
+        <div class=>
+            <div class="product-summary-container">
 
-        <div>
-            <img class="product-summary-thumbnail" src="{{ product.image.url }}" alt="">
-            <h5></h5>
-        </div>
-
-        <div>
-            <p>{{ product.name }}</p>
-            <p>{{ product.description }}</p>
-            <p>${{ product.price }}</p>
-
-            {% if messages %}
-                {% for message in messages %}
-<!--                    <div class="cart-msg-success">{{ message }}</div>-->
-                    <div class="alert alert-success" role="alert">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-
-            <form method="post" action=".">
-                {% csrf_token %}
-                <div id="input">
-                    <input type="number" name="quantity" value="1" min="1" class="input">
+                <div class="product-image-col">
+                    <img class="product-summary-thumbnail" src="{{ product.image.url }}" alt="">
                 </div>
-                <div>
-                    <button class="btn btn-dark">Add to cart</button>
+
+                <div class="summary">
+                    <h4>{{ product.name }}</h4>
+                    <p>{{ product.description }}</p>
+                    <p>${{ product.price }}</p>
+
+                    {% if messages %}
+                        {% for message in messages %}
+<!--                            <div class="cart-msg-success">{{ message }}</div>-->
+                            <div class="alert alert-success" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="post" action=".">
+                        {% csrf_token %}
+                        <div id="input">
+                            <input type="number" name="quantity" value="1" min="1" class="input">
+                        </div>
+                        <br>
+                        <div>
+                            <button class="btn btn-dark input">Add to cart</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
-</section>
+<!--    </div>-->
+<!--</section>-->
+<!---->
+<!--<hr>-->
 
-<hr>
+<!--<section>-->
+<!--    <div id="similar-heading">-->
+<!--        <h4>Similar Products</h4>-->
+<!--    </div>-->
+<!--    <div class="similar-products">-->
+<!--        {% if similar_products %}-->
 
-<section>
-    <div id="similar-heading">
-        <h4>Similar Products</h4>
-    </div>
-    <div class="similar-products">
-        {% if similar_products %}
+<!--        {% for products in similar_products %}-->
+<!--            {% include 'product/list_similar.html' %}-->
+<!--        {% endfor %}-->
 
-        {% for products in similar_products %}
-            {% include 'product/list_similar.html' %}
-        {% endfor %}
-
-        {% endif %}
-    </div>
-</section>
+<!--        {% endif %}-->
+<!--    </div>-->
+<!--</section>-->
 
 
 {% endblock %}

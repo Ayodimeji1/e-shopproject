@@ -2,21 +2,27 @@
 
 {% block content %}
 
-<div>
 
-    <div class="col-11">
-        <h5>Pay: NGN{{ payment.amount }}</h5>
-        <form id="paymentForm">
-            <button type="submit" class="btn btn-success" onclick="payWithPayStack()">Confirm Payment</button>
-        </form>
+<div class="container h-100">
+    <div class="row align-items-center h-100">
+        <div class="col-6 mx-auto">
+            <div class="card" style="width: 30rem; padding: 1rem 3rem 1rem 3rem; border-radius: 1rem;">
+                <div class="col-11" style="margin-left: 5rem;">
+                    <h5 style="margin-left: 3rem;">Pay: NGN{{ payment.amount }}</h5>
+                    <form id="paymentForm">
+                        <button type="submit" class="btn btn-success" onclick="payWithPayStack()">Confirm Payment</button>
+                    </form>
 
-<!--        <script src="https://js.paystack.co/v1/inline.js"></script>-->
+                    <script src="https://js.paystack.co/v1/inline.js"></script>
+                </div>
+            </div>
+        </div>
     </div>
-
-<script src="https://js.paystack.co/v1/inline.js"></script>
 </div>
 
-<!--{% block scripts %}-->
+<!--<script src="https://js.paystack.co/v1/inline.js"></script>-->
+
+{% block scripts %}
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
     function payWithPayStack(){
@@ -43,7 +49,7 @@
         handler.openIframe();
     }
 </script>
-<!--{% endblock scripts %}-->
+{% endblock scripts %}
 
 
 {% endblock %}

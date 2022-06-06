@@ -55,10 +55,10 @@ class Product(models.Model):
         return reverse('product', args=[self.slug])
 
 
-class ProductImage(models.Model):
-    product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='images/', blank=False)
-    thumbnail = ImageSpecField(source='images',
-                               processors=[ResizeToFill(90, 80)],
-                               format='JPEG',
-                               options={'quality': 90})
+# class ProductImage(models.Model):
+#     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE)
+#     image = models.ImageField(upload_to='images/', blank=False)
+#     thumbnail = ImageSpecField(source='images',
+#                                processors=[ResizeToFill(90, 80)],
+#                                format='JPEG',
+#                                options={'quality': 90})

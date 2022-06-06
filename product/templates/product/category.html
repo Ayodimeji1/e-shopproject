@@ -4,8 +4,8 @@
 
 {% block content %}
 <section class="s2">
-    <div>
-        <h2>{{ category.title }}</h2>
+    <div >
+        <h5>{{ category.title }}</h5>
     </div>
 
     <div class="category-container">
@@ -13,7 +13,7 @@
         <div class="category-item"><a href="{% url 'product' product.category.slug product.slug %}">
             <img class="category-thumbnail" src="{{ product.image.url }}" alt="">
             <div>
-                <h6 class="item-title">{{ product.name }}</h6>
+                <h5 class="item-title">{{ product.name }}</h5>
                 <p id="item-price">${{ product.price }}</p>
             </div></a>
         </div>

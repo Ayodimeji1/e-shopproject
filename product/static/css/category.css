@@ -13,7 +13,7 @@
 }
 
 
-h1 {font-size: 56px;}
+/*h1 {font-size: 56px;}
 h2 {font-size: 36px;}
 h3 {font-size: 28px;}
 h4 {font-size: 24px;}
@@ -21,13 +21,20 @@ h5 {font-size: 20px;}
 h6 {
     font-size: 16px;
     padding-top:10px;
-}
+}*/
 
 .s2 {
     background-color: var(--secondaryColor);
     /*border-bottom: 1px solid var(--borderColor);*/
     overflow: auto;
     justify-content: center;
+}
+#cat-heading{
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .blank {
     background-color: #8f9491;
