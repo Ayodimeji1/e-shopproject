@@ -15,8 +15,6 @@ The Project is a fully-featured e-commerce web application developed using Djang
 - [Dependencies](#dependencies)
 - [Configuration](#configuration)
 - [Deployment](#deployment)
-- [Troubleshooting](#troubleshooting)
-- [Contributors](#contributors)
 - [License](#license)
 
 ## Features
