@@ -28,7 +28,7 @@ The Project is a fully-featured e-commerce web application developed using Djang
 
 ## Project Structure
 
-\`\`\`
+```
 e-shopproject-main/
 │
 ├── eshopproject/                            # Main project configuration
@@ -87,7 +87,7 @@ e-shopproject-main/
 ├── README.md                                # Project documentation
 ├── requirements.txt                         # Python package dependencies
 └── manage.py                                # Django management script
-\`\`\`
+```
 
 ## Installation
 
