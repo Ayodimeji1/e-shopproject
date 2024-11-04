@@ -8,7 +8,7 @@ DATABASES = {
 }
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=q_%h3^%6^kgb*&bf+o3s5h9s@m%#+ie4%%@b%0$(+a5=k#!ht'
+SECRET_KEY = config('SECRET_KEY)'
 
 PAYSTACK_SECRET_KEY = config('PAYSTACK_SECRET_KEY')
 PAYSTACK_PUBLIC_KEY = config('PAYSTACK_PUBLIC_KEY')
